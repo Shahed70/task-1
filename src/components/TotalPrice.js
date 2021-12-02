@@ -5,27 +5,22 @@ import { categoryProductState } from '../atoms/state'
 const getCategoriyState = selector({
     key:"getProductPrice",
     get: ({get}) => {
-       let getstate = get(categoryProductState);
-          getstate.reduce( (acc, item) => {
-            let temSum = Number(item.price) * Number(item.availAbleQuantity);
+       let getCategories = get(categoryProductState);
+       const totalPrice = getCategories.reduce( (acc, item) => {
+            let temSum = Number(item.price) * Number(item.quantity);
             return acc + temSum
        },0)
-      
+      return totalPrice
     }
      
 })
 
-
-
 const TotalPrice = () => {
     const categoryTotalPrice = useRecoilValue(getCategoriyState)
-    
-        console.log(categoryTotalPrice);
-    
     return (
-        <div className="text-right mb-10">
+        <div className="text-right mb-10 fixed-right">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Button 
+             Cart Total ${categoryTotalPrice}
             </button>
         </div>
     )
