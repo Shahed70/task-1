@@ -1,27 +1,43 @@
 import { atom } from "recoil";
 
-const categories1 = {
-    bird: [
-        {   
-            productId: 1,
-            productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
-            productName:"Yellow spy",
-            price: 10,
-            categoryId : "bird",
-            availAbleQuantity : 10
-        }
-    ],
-    electronics: [
-        {   
-            productId: 1,
-            productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
-            productName:"Yellow spy",
-            price: 10,
-            categoryId : "bird",
-            availAbleQuantity : 10
-        }
-    ]
-}
+// export const categories1 = {
+//     bird: [
+//         {   
+//             productId: 1,
+//             productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
+//             productName:"Yellow spy",
+//             price: 10,
+//             categoryId : "bird",
+//             availAbleQuantity : 10
+//         },
+//         {   
+//             productId: 1,
+//             productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
+//             productName:"Yellow spy",
+//             price: 10,
+//             categoryId : "bird",
+//             availAbleQuantity : 10
+//         }
+//     ],
+//     electronics: [
+//         {   
+//             productId: 1,
+//             productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
+//             productName:"Yellow spy",
+//             price: 10,
+//             categoryId : "mobile",
+//             availAbleQuantity : 10
+//         },
+//         {   
+//             productId: 1,
+//             productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
+//             productName:"Yellow spy",
+//             price: 10,
+//             categoryId : "mobile",
+//             availAbleQuantity : 10
+//         }
+//     ]
+// }
     const categories = 
         [
         {   
@@ -55,7 +71,7 @@ const categories1 = {
             productImage:"https://cdn.pixabay.com/photo/2021/06/16/21/46/parrot-6342271__340.jpg",
             productName:"Red spy",
             price: 10,
-            categoryId : "mobile",
+            categoryId : "bird",
             availAbleQuantity : 10
         },
             {   

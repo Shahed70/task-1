@@ -1,71 +1,120 @@
-import React from 'react'
-import { useRecoilState } from 'recoil'
-import { categoryProductState } from '../atoms/state'
+import React from "react";
+import { useRecoilState } from "recoil";
+import { categoryProductState } from "../atoms/state";
 
 const CategoryCard = () => {
-    const [categories, setCategories] = useRecoilState(categoryProductState)
+  const [categories, setCategories] = useRecoilState(categoryProductState);
 
-    const birdCategory = categories.filter( bird=> bird.categoryId === "bird")
-    const mobileCategory = categories.filter( bird=> bird.categoryId === "mobile")
-    const laptopCategory = categories.filter( bird=> bird.categoryId === "laptop")
-    return (
-        <div className="container my-20">
-            <div className="flex justify-center flex-wrap">
-                <div className="product-card">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3kCrw3N9kzVNr-DwA0j-TGy80yQZrdOTAbQ&usqp=CAU" alt="Sky" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="product-card mx-5">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3kCrw3N9kzVNr-DwA0j-TGy80yQZrdOTAbQ&usqp=CAU" alt="Sky" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                           
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="product-card">
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-                        <img className="" style={{ width: "100%" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3kCrw3N9kzVNr-DwA0j-TGy80yQZrdOTAbQ&usqp=CAU" alt="Sky" />
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                        </div>
-                        <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                        </div>
-                    </div>
-                </div>
+  const birdCategory = categories.filter((bird) => bird.categoryId === "bird");
+  const mobileCategory = categories.filter(
+    (bird) => bird.categoryId === "mobile"
+  );
+  const laptopCategory = categories.filter(
+    (bird) => bird.categoryId === "laptop"
+  );
+  return (
+    <div className="container my-20">
+        <section className="bird-section" id="bird">
+        <h1 className="text-3xl uppercase mb-5"> Birds</h1>
+      <div className="grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
+        {birdCategory?.map((bird) => (
+          <div className="product-card  px-5 shadow-lg rounded overflow-hidden">
+            <img
+              className="w-full"
+              style={{ width: "100%" }}
+              src={bird.productImage}
+              alt="Sky"
+            />
+            <div className="px-6 py-4">
+              <div className="text-3xl"> {bird.productName} </div>
+              <p>Lorem ipsum dolor sit amet.</p>
             </div>
-            <div className="flex justify-center">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+            <div className="flex justify-between">
+              <span>${bird.price}</span>
+              <span>IN STOCK {bird.availAbleQuantity}</span>
             </div>
-            <div className="flex justify-center">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+            <div className="quantity">
+              <input
+                className="shadow appearance-none mb-5 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="number"
+                placeholder=""
+              />
+              <button className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded">
+              Add To Cart
+              </button>
             </div>
-        </div>
+          </div>
+        ))}
+      </div>
+      </section>
 
-    )
-}
+      <section className="mobile-section my-24" id="mobile">
+        <h1 className="text-3xl uppercase mb-5"> Mobile Phone</h1>
+      <div className="grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
+        {mobileCategory?.map((mobile) => (
+          <div className="product-card  px-5 shadow-lg rounded overflow-hidden">
+            <img
+              className="w-full h-40"
+              src={mobile.productImage}
+              alt="Sky"
+            />
+            <div className="px-6 py-4">
+              <div className="text-3xl"> {mobile.productName} </div>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div className="flex justify-between">
+              <span>${mobile.price}</span>
+              <span>IN STOCK {mobile.availAbleQuantity}</span>
+            </div>
+            <div className="quantity">
+              <input
+                className="shadow appearance-none mb-5 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="number"
+                placeholder=""
+              />
+              <button className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded">
+              Add To Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      </section>
 
-export default CategoryCard
+      <section className="computer-section my-24" id="computer">
+        <h1 className="text-3xl uppercase mb-5"> Computer</h1>
+      <div className="grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-4">
+        {laptopCategory?.map((laptop) => (
+          <div className="product-card  px-5 shadow-lg rounded overflow-hidden">
+            <img
+              className="w-full h-40"
+              src={laptop.productImage}
+              alt="Sky"
+            />
+            <div className="px-6 py-4">
+              <div className="text-xl"> {laptop.productName} </div>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div className="flex justify-between">
+              <span>${laptop.price}</span>
+              <span>IN STOCK {laptop.availAbleQuantity}</span>
+            </div>
+            <div className="quantity">
+              <input
+                className="shadow appearance-none mb-5 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="number"
+                placeholder=""
+              />
+              <button className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded">
+              Add To Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+      </section>
+    </div>
+  );
+};
+
+export default CategoryCard;
