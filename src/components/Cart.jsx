@@ -1,64 +1,46 @@
-import React, { useState } from "react";
-
+import React from "react";
+import { useRecoilValue } from "recoil";
+import { categoryCartState } from "../atoms/state";
 const Cart = () => {
-  const [showModal, setShowModal] = useState(false);
+  const cartItems = useRecoilValue(categoryCartState);
+  const cartTotalCost = cartItems.reduce((acc, item) => {
+    const temSum = Number(item.quantity) * Number(item.price);
+    return acc + temSum;
+  }, 0);
   return (
-    <>
-      <button
-        className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-        type="button"
-        onClick={() => setShowModal(true)}
-      >
-        Modal
-      </button>
-      {showModal ? (
-        <>
-          <div className="justify-center transition duration-500 ease-in-out items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Modal Title</h3>
-                  <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModal(false)}
-                  >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
+    <div className="container">
+      <div className="cart-items">
+        {cartItems?.length === 0 ? (
+          <h1>Your cart is empty</h1>
+        ) : (
+          cartItems?.map((item) => (
+            <>
+              <div className="grid grid-cols-4 border py-5 text-center">
+                <div className="product-img">
+                  <img
+                    className="w-1/3 rounded inline-block"
+                    src={item.productImage}
+                    alt="cart products"
+                  />
                 </div>
-                {/*body*/}
-                <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                  Lorem ipsum dolor sit amet.
-                  </p>
+                <div className="product-name ">
+                  <h1 className="mt-3"> {item.productName}</h1>
                 </div>
-                {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="bg-emerald-500 text-black active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Save Changes
-                  </button>
+                <div className="product-quantity">
+                  <h1 className="mt-3">Quantity {item.quantity}</h1>
+                </div>
+                <div className="prduct-price">
+                  <h1 className="mt-3 text-center">Price ${item.price}</h1>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-        </>
-      ) : null}
-    </>
+            </>
+          ))
+        )}
+
+        <div className="w-full h-10 bg-blue border-b-2"></div>
+        <h1 className="text-2xl">Total Cost - ${cartTotalCost}</h1>
+      </div>
+    </div>
   );
 };
 
