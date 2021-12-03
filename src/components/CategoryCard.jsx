@@ -48,9 +48,12 @@ const CategoryCard = () => {
 
   const handleCart = (id) => {
     const cartItem = categories.find((item) => item.productId === id);
-      setCart([...cart, cartItem])
-
-      localStorage.setItem("Product", [cartItem])
+    if (cartItem.quantity < 1) {
+      toast.error("Please put your quantity first");
+    }else {
+      setCart([...cart, cartItem]);
+      toast.success("Product added to cart successfully");
+    }
 
     // setCart(
     //   produce(cart, (draft) => {
@@ -59,7 +62,7 @@ const CategoryCard = () => {
     // );
   };
 
-  const cartItems = useRecoilValue(categoryCartState)
+  const cartItems = useRecoilValue(categoryCartState);
   console.log(cartItems);
 
   return (
@@ -121,7 +124,7 @@ const CategoryCard = () => {
                 />
                 <div className="px-6 py-4">
                   <div className="text-3xl"> {mobile.productName} </div>
-                  <p>Lorem ipsum dolor sit amet.</p>
+                  <p className="btn-blue">Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div className="flex justify-between">
                   <span>${mobile.price}</span>
@@ -137,7 +140,10 @@ const CategoryCard = () => {
                   />
                 </div>
               </div>
-              <button  onClick={() => handleCart(mobile.productId)} className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded">
+              <button
+                onClick={() => handleCart(mobile.productId)}
+                className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded"
+              >
                 Add To Cart
               </button>
             </div>
@@ -174,7 +180,10 @@ const CategoryCard = () => {
                   />
                 </div>
               </div>
-              <button  onClick={() => handleCart(laptop.productId)} className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded">
+              <button
+                onClick={() => handleCart(laptop.productId)}
+                className="bg-blue-500 hover:bg-blue-700 w-full px-0 text-white font-bold py-2 px-4 rounded"
+              >
                 Add To Cart
               </button>
             </div>

@@ -1,7 +1,5 @@
 import { RecoilRoot } from 'recoil';
 import './App.css';
-import CartModal from './components/CartModal';
-//import { categories1 } from './atoms/state';
 import Category from './components/Category';
 import CategoryCard from './components/CategoryCard';
 import TotalPrice from './components/TotalPrice';
@@ -13,7 +11,6 @@ function App() {
         <TotalPrice />
         <Category />
         <CategoryCard />
-        {/* <CartModal className="mt-10" /> */}
       </div>
     </RecoilRoot>
   );

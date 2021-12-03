@@ -38,7 +38,7 @@ const Cart = () => {
         )}
 
         <div className="w-full h-10 bg-blue border-b-2"></div>
-        <h1 className="text-2xl">Total Cost - ${cartTotalCost}</h1>
+        <h1 className="text-2xl">Total Cost = ${cartTotalCost}</h1>
       </div>
     </div>
   );
