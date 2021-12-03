@@ -18,7 +18,7 @@ const Cart = () => {
               <div className="grid grid-cols-4 border py-5 text-center">
                 <div className="product-img">
                   <img
-                    className="w-1/3 rounded inline-block"
+                    className="w-1/3  rounded inline-block"
                     src={item.productImage}
                     alt="cart products"
                   />

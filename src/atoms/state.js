@@ -8,7 +8,7 @@ import { atom } from "recoil";
 //             productName:"Yellow spy",
 //             price: 10,
 //             categoryId : "bird",
-//             availAbleQuantity : 10
+//             quantity : 0
 //         },
 //         {   
 //             productId: 1,
@@ -16,7 +16,7 @@ import { atom } from "recoil";
 //             productName:"Yellow spy",
 //             price: 10,
 //             categoryId : "bird",
-//             availAbleQuantity : 10
+//             quantity : 0
 //         }
 //     ],
 //     electronics: [
@@ -26,7 +26,7 @@ import { atom } from "recoil";
 //             productName:"Yellow spy",
 //             price: 10,
 //             categoryId : "mobile",
-//             availAbleQuantity : 10
+//             quantity : 0
 //         },
 //         {   
 //             productId: 1,
@@ -34,7 +34,7 @@ import { atom } from "recoil";
 //             productName:"Yellow spy",
 //             price: 10,
 //             categoryId : "mobile",
-//             availAbleQuantity : 10
+//             quantity : 0
 //         }
 //     ]
 // }
@@ -46,7 +46,7 @@ import { atom } from "recoil";
             productId: 1,
             productImage:"https://cdn.pixabay.com/photo/2018/08/12/16/59/parrot-3601194__480.jpg",
             productName:"Yellow spy",
-            price: 10,
+            price: 12,
             categoryId : "bird",
             quantity : 0,
             inStock: 10
@@ -56,7 +56,7 @@ import { atom } from "recoil";
             productId: 2,
             productImage:"https://cdn.pixabay.com/photo/2017/09/16/19/33/parrot-2756488__340.jpg",
             productName:"Green spy",
-            price: 10,
+            price: 15,
             categoryId : "bird",
             quantity : 0,
             inStock: 10
@@ -66,7 +66,7 @@ import { atom } from "recoil";
             productId: 3,
             productImage:"https://cdn.pixabay.com/photo/2021/09/12/17/43/parrot-feathers-6619082__340.jpg",
             productName:"Blue spy",
-            price: 10,
+            price: 18,
             categoryId : "bird",
             quantity : 0,
             inStock: 10
@@ -75,7 +75,7 @@ import { atom } from "recoil";
             productId: 4,
             productImage:"https://cdn.pixabay.com/photo/2021/06/16/21/46/parrot-6342271__340.jpg",
             productName:"Red spy",
-            price: 10,
+            price: 20,
             categoryId : "bird",
             quantity : 0,
             inStock: 10
