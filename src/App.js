@@ -1,6 +1,7 @@
 import { RecoilRoot } from 'recoil';
 import './App.css';
-import Category from './components/Category';
+import Card from './components/Card';
+import Category from './components/CategoryList';
 import CategoryCard from './components/CategoryCard';
 import TotalPrice from './components/TotalPrice';
 
@@ -11,6 +12,7 @@ function App() {
         <TotalPrice />
         <Category />
         <CategoryCard />
+         {/* <Card /> */}
       </div>
     </RecoilRoot>
   );
