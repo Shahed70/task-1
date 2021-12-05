@@ -1,7 +1,5 @@
 import { atom } from "recoil";
 
-
-
 const categories = [
   {
     categoryName: "Bird",
@@ -125,7 +123,7 @@ const categories = [
         productName: "Lenonvo Legion",
         price: 25,
         categoryId: "laptop",
-        quantity: 0,
+        quantity: 5,
         inStock: 10,
       },
       {
@@ -135,7 +133,7 @@ const categories = [
         productName: "Lenovo 400",
         price: 50,
         categoryId: "laptop",
-        quantity: 0,
+        quantity: 5,
         inStock: 10,
       },
     ],
