@@ -123,7 +123,7 @@ const categories = [
         productName: "Lenonvo Legion",
         price: 25,
         categoryId: "laptop",
-        quantity: 5,
+        quantity: 0,
         inStock: 10,
       },
       {
@@ -133,7 +133,7 @@ const categories = [
         productName: "Lenovo 400",
         price: 50,
         categoryId: "laptop",
-        quantity: 5,
+        quantity: 0,
         inStock: 10,
       },
     ],
@@ -150,3 +150,36 @@ export const categoryCartState = atom({
   key: "cartState",
   default: [],
 });
+
+
+
+ 
+// const handeInputValue = (plusSign, catIndex, itemIndex) => {
+//   const singleCategoryStock = categories[catIndex].items[itemIndex].inStock
+
+//   if (plusSign === "+") {
+
+//     if (
+//       inputValue === -1 ||
+//       inputValue === 0 ||
+//       inputValue > Number(singleCategoryStock)
+//     ) {
+//       setInputValue(oldInputValue => oldInputValue + 1)
+//     }
+
+
+//     setCategories(oldCategories => produce(oldCategories, (draft) => {
+
+//       draft[catIndex].items[itemIndex].quantity = inputValue
+
+//     }))
+//   } else {
+//     setInputValue(oldInputValue => oldInputValue - 1)
+//     setCategories(oldCategories => produce(oldCategories, (draft) => {
+
+//       draft[catIndex].items[itemIndex].quantity = inputValue
+
+//     }))
+//   }
+
+// }

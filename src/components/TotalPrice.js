@@ -21,7 +21,6 @@ const getCategoriyState = selector({
   },
 });
 
-
 const TotalPrice = () => {
   const categoryTotalPrice = useRecoilValue(getCategoriyState);
   
@@ -40,7 +39,7 @@ const TotalPrice = () => {
   return (
     <div className="text-right mb-10 fixed-right">
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Cart Total ${categoryTotalPrice}
+       CART TOTAL${categoryTotalPrice}
       </button>
       <span className="ml-5">
         <CartModal />

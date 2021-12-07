@@ -9,7 +9,7 @@ const CartModal = () => {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        Show Cart
+       SHOW CART
       </button>
       {showModal ? (
         <>

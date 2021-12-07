@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Card = ({ item, catIndex, itemIndex, handleInputNumber, handleCart }) => {
-    const changeStock = item.inStock-item.quantity
+const Card = ({
+    item,
+    handleCart,
+    inputValue,
+    onQuantityChange
+
+}) => {
+
+    const changeStock = item.inStock - item.quantity
     return (
 
         <div className="product_detailsrounded border shadow-lg rounded-2xl">
@@ -16,27 +23,38 @@ const Card = ({ item, catIndex, itemIndex, handleInputNumber, handleCart }) => {
                     <p>Lorem ipsum dolor sit amet.</p>
                 </div>
                 <div className="product_price_quantity flex justify-between">
-                    <span className="btn">$50</span>
+                    <span className="btn"> ${item.price} </span>
 
-                     <span 
+                    <span
                         className="btn">In stock{changeStock}
-                     </span>
+                    </span>
                 </div>
                 <div className="product_input flex justify-center">
-                    <div className="group w-40  text-center border-2 rounded border-gray-700">
-                        <button className="font-500 border-gray-700 border-r-2 font-bold pr-2 font-bold uppercase">
+                    <div className="group w-40  block  text-center">
+
+                        <button
+                            onClick={() => onQuantityChange(inputValue - 1)}
+                            className="font-bold py-1 px-3 rounded border rounded-tr-none rounded-br-none  border-gray-900">
                             -
                         </button>
                         <span>
-                            <input onInput={e => handleInputNumber(e, catIndex, itemIndex )}
-                                className="w-1/2 outline-none" type="number" />
+                            <input
+                                max="10"
+                                value={inputValue}
+                                onChange={(e) => onQuantityChange(e.target.valueAsNumber)}
+                                className="w-1/2 text-center outline-none border border-gray-900 py-1" type="number" />
                         </span>
-                        <button className="font-500 uppercase border-gray-700 font-bold  border-l-2 pl-2">+</button>
+
+                        <button
+                            onClick={() => onQuantityChange(inputValue + 1)}
+                            className="font-bold py-1 px-3 rounded rounded-tl-none rounded-bl-none border border-gray-900">+
+                        </button>
+
                     </div>
                 </div>
             </div>
             <div className="product_button">
-                <button onClick={()=> handleCart(item.productId)} className="btn btn-blue w-full rounded-t-none rounded-b-2xl">Add To Cart</button>
+                <button onClick={handleCart} className="btn btn-blue w-full rounded-t-none rounded-b-2xl">Add To Cart</button>
             </div>
         </div>
 

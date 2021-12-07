@@ -1,19 +1,29 @@
 import { useRecoilValue } from "recoil";
 import { categoryProductState } from "../atoms/state";
+
 const CategoryList = () => {
   const categories = useRecoilValue(categoryProductState);
+  const jumpToPricing = (sectionId) => {
+    if(sectionId === "Bird") return
+    console.log(sectionId);
+    document.getElementById(sectionId).scrollIntoView({ block: "center", behavior: 'smooth' });
+  }
+    
   return (
     <>
       <div className=" flex odd:mx-3">
         Go To:
         {categories.map((category, index) => (
           <span key={index}>
-            <a
-              href={`/#${category.categoryName}`}
+            <button
+
+              onClick={() => jumpToPricing(category.categoryName)}
               className="btn inline-block mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
+            
               {category.categoryName}
-            </a>
+             
+            </button>
           </span>
         ))}
       </div>
