@@ -7,8 +7,10 @@ const getCategoriyState = selector({
   key: "getProductPrice",
   get: ({ get }) => {
     const getState = get(categoryProductState);
+    //console.log(getState[0]);
     let sum = 0;
-    const categoryArray = getState.map((category) => category.items);
+    const categoryArray = getState?.map((category) => category.products);
+    //console.log(categoryArray, getState);
     categoryArray.map((item) => {
       const indvidualItem = item;
       const total = indvidualItem.reduce((acc, item) => {

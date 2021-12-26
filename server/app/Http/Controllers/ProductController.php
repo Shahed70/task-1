@@ -29,6 +29,6 @@ class ProductController extends Controller
     public function getProducts () {
 
         $products = Category::with('products')->get();
-        return $products;
+        return response()->json($products) ;
     }
 }

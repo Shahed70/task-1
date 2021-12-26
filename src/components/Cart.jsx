@@ -4,8 +4,8 @@ import { categoryCartState } from "../atoms/state";
 const Cart = () => {
   const cartItems = useRecoilValue(categoryCartState);
   const singleProductCost = (price, quantity) => Number(price) * Number(quantity)
-  const singleProductCost1 = cartItems.map(prod=> (prod.price * prod.quantity))
-  console.log(singleProductCost1);
+
+
   const cartTotalCost = cartItems.reduce((acc, item) => {
     const tempSum = Number(item.quantity) * Number(item.price);
     return acc + tempSum;
@@ -24,12 +24,12 @@ const Cart = () => {
                 <div className="product-img">
                   <img
                     className="w-1/3  rounded inline-block"
-                    src={item.productImage}
+                    src={item.image}
                     alt="cart products"
                   />
                 </div>
                 <div className="product-name ">
-                  <h1 className="mt-3"> {item.productName}</h1>
+                  <h1 className="mt-3"> {item.title}</h1>
                 </div>
                 <div className="product-quantity">
                   <h1 className="mt-3">Quantity {item.quantity}</h1>

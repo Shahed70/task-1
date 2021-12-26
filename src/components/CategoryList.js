@@ -5,7 +5,6 @@ const CategoryList = () => {
   const categories = useRecoilValue(categoryProductState);
   const jumpToPricing = (sectionId) => {
     if(sectionId === "Bird") return
-    console.log(sectionId);
     document.getElementById(sectionId).scrollIntoView({ block: "center", behavior: 'smooth' });
   }
     
@@ -17,11 +16,11 @@ const CategoryList = () => {
           <span key={index}>
             <button
 
-              onClick={() => jumpToPricing(category.categoryName)}
+              onClick={() => jumpToPricing(category.cat_name)}
               className="btn inline-block mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
             
-              {category.categoryName}
+              {category.cat_name}
              
             </button>
           </span>
